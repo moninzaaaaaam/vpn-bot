@@ -39,4 +39,5 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == "referral":
         await query.edit_message_text("لینک: t.me/Glassnetbot", reply_markup=back)
     elif query.data == "tutorial":
-        await query.edit_message_text("آموزش: دانلود - نص
+                await query.edit_message_text("tutorial", reply_markup=back)
+
