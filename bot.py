@@ -10,7 +10,7 @@ CHANNEL = "@vpnfasttttte"
 async def check_member(bot, user_id):
     try:
         member = await bot.get_chat_member(CHANNEL, user_id)
-        return member.status in ["member", "administrator", "creator"]
+        return member.status not in ["left", "kicked"]
     except:
         return False
 
