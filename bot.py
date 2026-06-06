@@ -5,7 +5,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 logging.basicConfig(level=logging.INFO)
 
 TOKEN = "8932326265:AAGxB2Oz3-XWc_PDO-ic5o3vGdJcILpsnuM"
-CHANNEL = "@vpnfasttttte"
+CHANNEL = "@glassnett"
 
 async def check_member(bot, user_id):
     try:
