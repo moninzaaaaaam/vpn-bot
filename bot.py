@@ -1,5 +1,5 @@
 import logging
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, BotCommand
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 logging.basicConfig(level=logging.INFO)
@@ -7,6 +7,7 @@ logging.basicConfig(level=logging.INFO)
 TOKEN = "8932326265:AAGxB2Oz3-XWc_PDO-ic5o3vGdJcILpsnuM"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        await context.bot.set_my_commands([BotCommand("start","start"),BotCommand("new","new service"),BotCommand("renew","renew"),BotCommand("status","status")])
     keyboard = InlineKeyboardMarkup([
         [
             InlineKeyboardButton("credit", callback_data="credit"),
@@ -35,9 +36,20 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text("tutorial: download - install - connect")
     elif query.data == "support":
         await query.edit_message_text("support: @YourSupport")
+async def new(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("new service: @mobinzam")
+
+async def renew(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("renew: @mobinzam")
+
+async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("status: 0 GB")
 
 if __name__ == "__main__":
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button))
+        app.add_handler(CommandHandler("new", new))
+    app.add_handler(CommandHandler("renew", renew))
+    app.add_handler(CommandHandler("status", status))
     app.run_polling()
