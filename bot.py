@@ -20,7 +20,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     is_member = await check_member(context.bot, user_id)
     if not is_member:
         keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton("عضویت در کانال", url=f"https://t.me/vpnfasttttte")],
+            [InlineKeyboardButton("عضویت در کانال", url="https://t.me/glassnett")],
             [InlineKeyboardButton("عضو شدم", callback_data="check_join")]
         ])
         await update.message.reply_text("برای استفاده از ربات ابتدا در کانال ما عضو شوید.", reply_markup=keyboard)
