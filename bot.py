@@ -20,8 +20,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("🧑 پشتیبانی", callback_data="support")
+        ],
+        [
+            InlineKeyboardButton("🛒 خرید سرویس", url="https://t.me/mobinzam")
         ]
-    ])
+         ])
     await update.message.reply_text("سلام خوش آمدید 🌿", reply_markup=keyboard)
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
